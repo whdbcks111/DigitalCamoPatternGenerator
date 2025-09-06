@@ -90,19 +90,25 @@ function addPresetElement(name, pallete) {
     e.querySelector('.title').innerText = pallete ? '프리셋 - ' + name : "커스텀";
 
     let colorInputs = e.querySelector('.colors').querySelectorAll('input[type=color]');
+    let weightInputs = e.querySelector('.colors').querySelectorAll('input[type=number]');
 
     if(pallete) {
         for(let i = 0; i < colorInputs.length; i++) {
-            /**
-             * @type {HTMLInputElement}
-             */
-            let inp = colorInputs[i];
-            inp.value = pallete[i][0];
+            colorInputs[i].value = pallete[i][0];
+            weightInputs[i].value = pallete[i][1];
         }
+    }
+    else {
+        weightInputs.forEach(e => e.value = 1);
     }
 
     e.querySelector('input[type=button]').onclick = _ => {
-        
+        let p = [];
+        for(let i = 0; i < colorInputs.length; i++) {
+            p.push([colorInputs[i].value, parseInt(weightInputs[i].value)]);
+        }
+        console.log(p)
+        drawCamo(selectedPreset = p, pixelSize);
     }
 
     document.body.appendChild(e);
