@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'AliceDigitalLearning';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'AliceDigitalLearning';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_elice@1.0/EliceDigitalBaeum-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+* {
+    font-family: AliceDigitalLearning;
+}
+
+body {
+    padding: 10px;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+canvas {
+    height: 500px;
+    border: 2px solid black;
+    display: block;
+}
+
+.colors {
+    display: flex;
+    margin: 0 10px;
+}
+
+.colors > input[type=color]+input[type=number] {
+    width: 30px;
+    padding: 3px;
+}
+
+.option {
+    border: 2px solid black;
+    width: 500px;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #f2f3f0;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preset {
+    border: 2px solid black;
+    display: flex;
+    width: 500px;
+    align-items: center;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #f2f3f0;
+    margin: 5px 0;
+}
+
+.preset > .title {
+    flex-grow: 1;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+input[type=button] {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+input[type=text], input[type=number] {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px 15px;
+    width: 100px;
+}
+
+input[type=color] {
+    width: 35px;
+    height: 35px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=color]::-webkit-color-swatch {
+    border-radius: 30px;
+    border: 1px solid black;
+}

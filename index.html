@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Camo Pattern Generator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="canvas"></canvas>
+    <div class="option">
+        <div>픽셀 크기</div> 
+        <input type="number" class="pixel-size" value="8">
+    </div>
+    <div class="option">
+        <div>캔버스 크기</div> 
+        <div class="flex">
+            <input type="number" class="canvas-size-x" value="3000">
+            <div>&nbsp;X&nbsp;</div>
+            <input type="number" class="canvas-size-y" value="3000">
+        </div> 
+    </div>
+    <div class="preset hidden">
+        <div class="title">프리셋</div>
+        <div class="colors">
+            <input type="color">
+            <input type="number">
+            <input type="color">
+            <input type="number">
+            <input type="color">
+            <input type="number">
+            <input type="color">
+            <input type="number">
+            <input type="color">
+            <input type="number">
+        </div>
+        <input type="button" value="적용">
+    </div>
 </body>
 <script src="index.js"></script>
 </html>
