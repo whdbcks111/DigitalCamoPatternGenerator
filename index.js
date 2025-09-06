@@ -9,6 +9,7 @@ const pallete_karmy = [['#5c695d', 5],['#414e2f', 1],['#3b302a', 1],['#aca299', 
 
 let pixelSize = 8;
 let selectedPreset = pallete_karmy;
+let customPalleteCount = 2;
 
 const presetCopy = document.querySelector('.preset.hidden');
 
@@ -38,6 +39,22 @@ canvasYInput.onchange = _ => {
     canvas.height = parseInt(canvasYInput.value);
     drawCamo(selectedPreset, pixelSize);
 }
+
+const saveButton = document.getElementById('save');
+saveButton.onclick = _ => {
+    const dataURL = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.download = 'my-canvas-image.png';
+    link.href = dataURL;
+    link.click();
+}
+
+const addPalleteBtn = document.getElementById('add-pallete');
+addPalleteBtn.onclick = _ => {
+    addPresetElement("커스텀 " + (++customPalleteCount), null);
+}
+
+
 
 canvas.width = 3000;
 canvas.height = 3000;
@@ -87,7 +104,7 @@ function addPresetElement(name, pallete) {
     let e = presetCopy.cloneNode(true);
     e.classList.remove('hidden');
 
-    e.querySelector('.title').innerText = pallete ? '프리셋 - ' + name : "커스텀";
+    e.querySelector('.title').innerText = pallete ? '프리셋 - ' + name : name;
 
     let colorInputs = e.querySelector('.colors').querySelectorAll('input[type=color]');
     let weightInputs = e.querySelector('.colors').querySelectorAll('input[type=number]');
@@ -116,6 +133,8 @@ function addPresetElement(name, pallete) {
 
 addPresetElement("디지털티", pallete_dtshirt);
 addPresetElement("디지털군복", pallete_karmy);
-addPresetElement("", null);
+
+for(let i = 1; i <= customPalleteCount; i++)
+    addPresetElement("커스텀 " + i, null);
 
 drawCamo(selectedPreset, pixelSize);

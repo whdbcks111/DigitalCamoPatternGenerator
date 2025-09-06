@@ -17,7 +17,7 @@
 }
 
 body {
-    width: 100vw;
+    overflow-x: hidden;
     height: 100vh;
     margin: 0;
     box-sizing: border-box;
@@ -109,4 +109,15 @@ input[type=color] {
 input[type=color]::-webkit-color-swatch {
     border-radius: 30px;
     border: 1px solid black;
+}
+
+.menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    border-top: 2px solid black;
+    padding: 5px 10px;
+    background-color: #cccccce7;
 }
